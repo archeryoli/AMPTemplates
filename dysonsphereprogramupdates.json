@@ -17,11 +17,27 @@
         "SkipOnFailure": false
     },
     {
+        "UpdateStageName": "Update and install dependencies",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"apt update; apt install -y xvfb fluxbox\"",
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Start Xvfb",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "-c \"export DISPLAY=:99; Xvfb \\\"$DISPLAY\\\" -screen 0 1024x768x24 > /dev/null 2>&1 & echo $! > xvfb.pid && fluxbox &\"",
+        "SkipOnFailure": true
+    },
+    {
         "UpdateStageName": "Disable Prefix Sound",
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"cd dysonsphereprogram && export PATH=\\\"{{$FullRootDir}}.proton/files/bin:$PATH\\\"; export WINEPREFIX=\\\"{{$FullRootDir}}.proton/compatdata/pfx\\\"; export WINEARCH=win64; export XDG_RUNTIME_DIR=/tmp; ./.proton/protonfixes/winetricks sound=disabled > winescript_log.txt 2>&1\"",
+        "UpdateSourceArgs": "-c \"cd dysonsphereprogram && export PATH=\\\"{{$FullRootDir}}.proton/files/bin:$PATH\\\"; export WINEPREFIX=\\\"{{$FullRootDir}}.proton/compatdata/pfx\\\"; export WINEARCH=win64; export XDG_RUNTIME_DIR=/tmp; ./.proton/protonfixes/winetricks sound=disabled > winescript_log.txt 2>&1; echo \\\"For Debug purposes:\\\"; printenv\"",
         "SkipOnFailure": true
     }
 ]
