@@ -17,14 +17,6 @@
         "SkipOnFailure": false
     },
     {
-        "UpdateStageName": "Update and install dependencies",
-        "UpdateSourcePlatform": "Linux",
-        "UpdateSource": "Executable",
-        "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "-c \"sudo apt update; sudo apt install -y xvfb fluxbox\"",
-        "SkipOnFailure": false
-    },
-    {
         "UpdateStageName": "Start Xvfb",
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
