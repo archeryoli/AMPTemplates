@@ -22,7 +22,8 @@
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
         "UpdateSourceArgs": "-c \"export DISPLAY=:99; Xvfb \\\"$DISPLAY\\\" -screen 0 1024x768x24 > /dev/null 2>&1 & echo $! > xvfb.pid && fluxbox &\"",
-        "SkipOnFailure": true
+        "SkipOnFailure": true,
+        ""RunInBackground": true
     },
     {
         "UpdateStageName": "Disable Prefix Sound",
