@@ -77,8 +77,8 @@ Meta.DisplayImageSource=steam:1366540
 App.BaseDirectory=./dysonsphereprogram/1366540/
 App.WorkingDir=1366540/
 App.ExecutableWin=1366540\
-App.ExecutableLinux={{$FullRootDir}}.proton/proton
-App.LinuxCommandLineArgs=runinprefix "{{$FullBaseDir}}DSPGAME.exe" -batchmode -nographics -nebula-server  
+App.ExecutableLinux=/bin/bash
+App.LinuxCommandLineArgs=-c "export DISPLAY=:99 Xvfb \"$DISPLAY\" -screen 0 1024x768x24 > /dev/null 2>&1 & echo $! > xvfb.pid && {{$FullRootDir}}.proton/proton runinprefix "{{$FullBaseDir}}DSPGAME.exe" -batchmode -nographics -nebula-server"
 App.Ports=@IncludeJson[dysonsphereprogramports.json]
 App.UpdateSources=@IncludeJson[dysonsphereprogramupdates.json]
 App.EnvironmentVariables={"SteamAppId": "1366540", "STEAM_COMPAT_DATA_PATH": "{{$FullRootDir}}.proton/compatdata", "STEAM_COMPAT_CLIENT_INSTALL_PATH": "{{$FullBaseDir}}.steam/steam", "HOME": "{{$FullBaseDir}}", "XDG_RUNTIME_DIR": "/tmp"}
